@@ -1,4 +1,6 @@
-<?include "session_init.php";?>
+<?
+	include "session_init.php";
+?>
 <script src=jquery-2.0.2.min.js type=text/javascript></script>
 <script type=text/javascript>
 $(document).ready(function()

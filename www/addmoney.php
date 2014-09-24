@@ -51,7 +51,7 @@ else
 		{
 			for ($i=0; $i<$count; $i++)
 			{					
-				$new_val = mysql_result($res, $i, "сумма");
+				$old_val = mysql_result($res, $i, "сумма");
 				$active=mysql_result($res, $i, "активность");
 				if(!$active)
 				{
@@ -66,9 +66,15 @@ else
 				}
 				else
 				{
-					$new_val= $new_val + $money;
+					$new_val= $old_val + $money;
+					$test = new MyClassTest();
+
 					$pes=mysql_query('UPDATE  `bank`.`счета` SET  `сумма` =  "' . $new_val . '" WHERE  `счета`.`номер` = "' . $bill . '"');
 					?><script type=text/javascript>window.alert("Счет успешно пополнен")</script><?
+					echo "<p>test information:<p>";
+					$old_val = $new_val;
+					$res = $test->testAdd($old_val, $new_val);
+					echo $res;
 				}
 			}
 			if(message&&!$rights&&$active)//сообщение пользователю

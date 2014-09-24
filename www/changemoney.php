@@ -1,6 +1,7 @@
 <?
 include "session_init.php";
 include "changemoneyf.php";
+//Функция принемает количество средств в рублях, и снимает комиссию в 1%, если сумма меньше 1000
 function rub_komis($rub) {
 	if($rub*0.99<=1000)
 	{
